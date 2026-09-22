@@ -27,7 +27,9 @@ make run
 
 ## Live URL
 
-Not deployed yet.
+## Live URL
+
+https://dinemind.com
 
 ## Health endpoint
 
