@@ -10,7 +10,7 @@
 
 ## About
 
-Restaurant recommendation system by filtering categories 
+This project helps users discover restaurants based on category and preferences.
 
 ## Tech stack
 
