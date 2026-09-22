@@ -1,23 +1,22 @@
 # <Project Name>
 
-> Replace every angle-bracket placeholder below. The hygiene check in CI will
-> fail until you do.
+ Restaurant Recommendation system
 
 ## Author
 
 | Roll No. | Name | GitHub username |
 |---|---|---|
-| <roll> | <name> | <username> |
+| 24ESKCS131 | Gaurav Yadav| Gauravyd-01 |
 
 ## About
 
-<Two or three sentences on what this application does.>
+Restaurant recommendation system by filtering categories 
 
 ## Tech stack
 
-- Frontend: <e.g. React>
-- Backend: <e.g. Node.js / Express>
-- Database: <e.g. PostgreSQL>
+- Frontend:  HTML5,CSS3,JavaScript (ES6+)
+- Backend:  Not implemented yet
+- Database: Not implemented yet
 
 ## Running locally
 
@@ -28,7 +27,7 @@ make run
 
 ## Live URL
 
-<Add once M5 is done. Until then, leave as is.>
+Not deployed yet.
 
 ## Health endpoint
 
