@@ -17,6 +17,7 @@ This project helps users discover restaurants based on category and preferences.
 - Frontend:  HTML5,CSS3,JavaScript (ES6+)
 - Backend:  Not implemented yet
 - Database: Not implemented yet
+- Version Control: Git & GitHub
 
 ## Running locally
 
