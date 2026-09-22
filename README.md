@@ -36,3 +36,7 @@ https://dinemind.com
 
 `GET /health` returns the running commit SHA. See `Makefile` and the milestone
 sheet for why this is required.
+
+## Contact
+For queries regarding this project:
+GitHub: Gauravyd-01
