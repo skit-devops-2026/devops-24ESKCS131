@@ -14,7 +14,7 @@ install:
 	@echo "TODO: install dependencies" && exit 1
 
 test:
-	@echo "TODO: run the test suite" && exit 1
+    bash tests/test.sh
 
 build:
 	@echo "TODO: build the project" && exit 1
