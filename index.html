@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DineMind | Restaurant Recommendation System & Separate Kitchen Shield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">🍽️</span>
+        <span class="logo-text">Dine<span class="highlight">Mind</span></span>
+        <span class="badge-ai">Smart Finder</span>
+      </div>
+
+      <div class="nav-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search by restaurant name, dish, cuisine, or location..." />
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-wheel" id="openWheelBtn">
+          <span>🎡</span> Foodie Decider Wheel
+        </button>
+        <button class="btn btn-accent btn-budget" id="openBudgetBtn">
+          <span>💰</span> Bill Estimator
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span>🥦 Dedicated Kitchen Safety Shield & Personalized Taste Match</span>
+      </div>
+      <h1>Smart Restaurant Recommendations <br><span class="text-gradient">Tailored To Your Kitchen & Taste Preferences</span></h1>
+      <p class="hero-subtext">Filter by 100% Pure Veg, Dedicated Separate Veg/Non-Veg Kitchens, Taste Match scores, signature dish ratings, and exact meal budget limits.</p>
+      
+      <!-- Kitchen Segregation Quick Filter Bar -->
+      <div class="kitchen-tabs-container">
+        <span class="tabs-label">Kitchen Setup Filter:</span>
+        <div class="kitchen-tabs" id="kitchenTabs">
+          <button class="kitchen-tab active" data-kitchen="all">🌐 All Kitchens</button>
+          <button class="kitchen-tab pure-veg" data-kitchen="pure_veg">🌿 100% Pure Veg Kitchens</button>
+          <button class="kitchen-tab separate" data-kitchen="separate_kitchen">🔪 Dedicated Separate Kitchens</button>
+          <button class="kitchen-tab combined" data-kitchen="combined_kitchen">🍲 Combined Kitchen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="main-layout">
+
+    <!-- Filter Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>⚡ Filter Recommendations</h3>
+        <button class="btn-reset" id="resetFiltersBtn">Reset All</button>
+      </div>
+
+      <!-- Location Filter -->
+      <div class="filter-group">
+        <label for="locationSelect">📍 Location / Neighborhood</label>
+        <select id="locationSelect" class="custom-select">
+          <option value="all">All Locations</option>
+          <option value="Downtown">Downtown</option>
+          <option value="Uptown">Uptown</option>
+          <option value="Bay Area">Bay Area</option>
+          <option value="Midtown">Midtown</option>
+          <option value="Waterfront">Waterfront</option>
+          <option value="Westside">Westside</option>
+        </select>
+      </div>
+
+      <!-- Cuisine Filter -->
+      <div class="filter-group">
+        <label for="cuisineSelect">🍜 Cuisine Type</label>
+        <select id="cuisineSelect" class="custom-select">
+          <option value="all">All Cuisines</option>
+          <option value="South Indian">South Indian</option>
+          <option value="North Indian">North Indian</option>
+          <option value="Japanese">Japanese / Sushi</option>
+          <option value="Italian">Italian</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Mediterranean">Mediterranean</option>
+          <option value="Thai">Thai</option>
+          <option value="Vegan">Vegan Cuisine</option>
+        </select>
+      </div>
+
+      <!-- Rating Slider -->
+      <div class="filter-group">
+        <div class="slider-header">
+          <label>⭐ Minimum Rating</label>
+          <span class="rating-value" id="ratingValue">4.0+ Stars</span>
+        </div>
+        <input type="range" id="ratingSlider" min="3.5" max="4.8" step="0.1" value="4.0" class="custom-slider" />
+      </div>
+
+      <!-- Dietary Safety Shield -->
+      <div class="filter-group">
+        <label>🛡️ Dietary & Allergy Shield</label>
+        <div class="checkbox-grid" id="dietaryCheckboxes">
+          <label class="checkbox-item">
+            <input type="checkbox" value="Vegan" />
+            <span>🌱 Vegan</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Gluten-Free" />
+            <span>🌾 Gluten-Free</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Halal" />
+            <span>🌙 Halal</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Nut-Free" />
+            <span>🥜 Nut-Free</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Jain-Friendly" />
+            <span>✨ Jain-Friendly</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" value="Keto" />
+            <span>🥩 Keto</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Price Level Filter -->
+      <div class="filter-group">
+        <label>₹ Price Range</label>
+        <div class="price-btn-group" id="priceBtnGroup">
+          <button class="price-btn active" data-price="all">Any</button>
+          <button class="price-btn" data-price="₹">₹</button>
+          <button class="price-btn" data-price="₹₹">₹₹</button>
+          <button class="price-btn" data-price="₹₹₹">₹₹₹</button>
+          <button class="price-btn" data-price="₹₹₹₹">₹₹₹₹</button>
+        </div>
+      </div>
+
+      <!-- Per Person Budget Slider -->
+      <div class="filter-group">
+        <div class="slider-header">
+          <label>💵 Max Budget / Person</label>
+          <span class="budget-value" id="budgetValue">₹600 / person</span>
+        </div>
+        <input type="range" id="budgetSlider" min="150" max="1000" step="50" value="600" class="custom-slider" />
+      </div>
+    </aside>
+
+    <!-- Main Results Section -->
+    <section class="results-section">
+      <div class="results-bar">
+        <h2>Recommended Places (<span id="resultCount">0</span>)</h2>
+        <div class="sort-wrapper">
+          <label for="sortSelect">Sort By:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="match">Highest Taste Match %</option>
+            <option value="rating">Top Rated (Stars)</option>
+            <option value="cost_asc">Cost: Low to High</option>
+            <option value="cost_desc">Cost: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Restaurant Cards Grid -->
+      <div class="cards-grid" id="restaurantGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Restaurant Detail Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-content modal-lg">
+      <button class="modal-close" id="closeDetailModal">&times;</button>
+      <div id="modalDetailBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Spin Wheel Modal (Clean Wheel Slices - No Restaurant Names Printed inside Wheel) -->
+  <div class="modal-overlay" id="wheelModal">
+    <div class="modal-content modal-md text-center">
+      <button class="modal-close" id="closeWheelModal">&times;</button>
+      <div class="wheel-container">
+        <h2>🎡 "Foodie Decider" Spin-the-Wheel</h2>
+        <p class="wheel-subtitle">Can't decide where to eat? Spin the decision wheel to pick a place!</p>
+        
+        <div class="wheel-wrapper">
+          <div class="wheel-pointer">🔻</div>
+          <div class="wheel-canvas" id="wheelCanvas">
+            <!-- Clean Wheel Slices with numbers 1 to 6 - No names shown inside canvas -->
+            <div class="wheel-number-label pos-1">1</div>
+            <div class="wheel-number-label pos-2">2</div>
+            <div class="wheel-number-label pos-3">3</div>
+            <div class="wheel-number-label pos-4">4</div>
+            <div class="wheel-number-label pos-5">5</div>
+            <div class="wheel-number-label pos-6">6</div>
+          </div>
+        </div>
+
+        <button class="btn btn-spin" id="spinWheelActionBtn">🔥 SPIN THE WHEEL</button>
+        <div class="wheel-result-card" id="wheelResultCard" style="display: none;">
+          <!-- Winner Announcement Card -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Budget Estimator Modal -->
+  <div class="modal-overlay" id="budgetModal">
+    <div class="modal-content modal-md">
+      <button class="modal-close" id="closeBudgetModal">&times;</button>
+      <h2>💰 Smart Meal Cost & Bill Estimator</h2>
+      <p class="modal-subtitle">Pick dishes from any restaurant and calculate exact meal cost in Rs. per person!</p>
+
+      <div class="budget-modal-body" id="budgetModalBody">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
