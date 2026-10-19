@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: ghcr.io/skit-devops-2026/devops-24eskcs131:latest
+    container_name: dinemind-app
+    ports:
+      - "80:80"
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

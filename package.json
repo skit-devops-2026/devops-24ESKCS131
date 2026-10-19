@@ -1,0 +1,21 @@
+{
+  "name": "dinemind-devops",
+  "version": "1.0.0",
+  "description": "DineMind Restaurant Recommendation Platform - DevOps Assignment CSUL511",
+  "main": "app.js",
+  "scripts": {
+    "test": "node tests/test.js",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "devops",
+    "html5",
+    "css3",
+    "javascript",
+    "testing",
+    "github-actions",
+    "jenkins"
+  ],
+  "author": "Gaurav Yadav",
+  "license": "MIT"
+}
