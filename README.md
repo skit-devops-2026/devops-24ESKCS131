@@ -28,9 +28,7 @@ make run
 
 ## Live URL
 
-## Live URL
-
-https://dinemind.com
+https://skit-devops-2026.github.io/devops-24eskcs131/
 
 ## Health endpoint
 
